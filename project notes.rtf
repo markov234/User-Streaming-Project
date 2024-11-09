@@ -1,0 +1,38 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red56\green101\blue115;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c27451\c47059\c52549;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \expnd0\expndtw0\kerning0
+User Streaming Project\
+\'a0\
+\'a0\
+kafka_stream.py pulls data from {\field{\*\fldinst{HYPERLINK "https://randomuser.me/api/"}}{\fldrslt \cf3 \ul \ulc3 https://randomuser.me/api/}}.\
+\'a0\
+docker-compose.yml creates the images we want in docker. The images are made from top of the script to bottom of the script, and the lower images have dependencies on the earlier images (eg, kafka stream depends on zookeeper). So docker runs all these services for you in images in docker.\
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0\cf0 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Zookeeper: Required by Kafka for coordination and management. Zookeeper helps keep track of Kafka brokers and topics.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Kafka Broker: The core Kafka component that handles data streams and distributes them to various consumers. Kafka clusters store streams of records in categories called topics.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Schema Registry: A service provided by Confluent that manages and enforces schemas for the data going through Kafka topics, ensuring data consistency and compatibility.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Control Center: Confluent\'92s GUI-based management and monitoring tool that lets you monitor Kafka topics, consumers, and performance metrics in real time. It simplifies managing Kafka\'92s complex operations and is ideal for monitoring the health of Kafka clusters.\
+\pard\tx720\pardeftab720\partightenfactor0
+\cf0 \
+Once images are up and running, then we can connect our kafka stream of the data to our kafka broker (I think). \
+\
+docker-compose down to spin down (shut off) the images when not in use.\
+docker-compose up -d to spin up the images when ready to use.\
+Run these in VS code terminal.\
+\
+
+\f1\fs24 \
+}

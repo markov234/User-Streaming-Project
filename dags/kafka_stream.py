@@ -38,10 +38,16 @@ def format_data(res):
 
 def stream_data():
     import json
+    from kafka import KafkaProducer     # produces messages (or 'events') to a Kafka topic
+    import time
+
     res = get_data()
     res = format_data(res)
-    print(json.dumps(res, indent=2))
-        
+    # print(json.dumps(res, indent=2))
+
+    # connecting to Kafka server
+    producer = KafkaProducer(bootstrap_servers=['localhost:9092'], max_block_ms=5000)   # push res to the queue
+    producer.send('users_created', json.dumps(res).encode('utf-8'))
 
 # with DAG('user_automation',
 #          default_args=default_args,
